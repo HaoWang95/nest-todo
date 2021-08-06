@@ -1,6 +1,6 @@
 type Todo {
   # Example field (placeholder)
-  exampleField: Int
+  id: ID!
 }
 
 input CreateTodoInput {
