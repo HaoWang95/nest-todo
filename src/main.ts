@@ -13,7 +13,7 @@ async function bootstrap() {
     .setTitle('Nestjs Todo App Api Documentation')
     .setDescription('The todo api description')
     .setVersion('1.0')
-    .addTag('Alan')
+    .addTag('ToDo')
     .build()
   
   const document = SwaggerModule.createDocument(app, config);
