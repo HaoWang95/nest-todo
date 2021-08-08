@@ -11,8 +11,8 @@ import { TodoModule } from './todo/todo.module';
     GraphQLModule.forRoot({
       // adding the typePaths which indicates where the GraphQLModule should look for
       // GraphQL SDL schema definition
-      include: [],
-      autoSchemaFile: true
+      
+      autoSchemaFile: 'schema.gql'
     }),
     TodoModule
   ],
