@@ -2,6 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type ToDo {
+  id: Int!
+  title: String!
+  content: String
+}
+
 type Query {
   sayHello: String!
+  findTodos: [ToDo!]!
 }

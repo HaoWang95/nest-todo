@@ -1,10 +1,10 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, Int, ObjectType } from "@nestjs/graphql";
 import { IsNotEmpty } from "class-validator";
 
 
 @ObjectType()
 export class ToDo{
-    @Field()
+    @Field(type => Int)
     @IsNotEmpty()
     id: number;
 
