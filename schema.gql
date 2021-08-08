@@ -12,3 +12,12 @@ type Query {
   sayHello: String!
   findTodos: [ToDo!]!
 }
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): ToDo!
+}
+
+input CreateTodoInput {
+  title: String!
+  content: String
+}

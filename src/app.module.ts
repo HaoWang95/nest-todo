@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ToDo } from './todo/entities/todo.entity';
 import { TodoModule } from './todo/todo.module';
 
 
@@ -14,9 +16,10 @@ import { TodoModule } from './todo/todo.module';
       autoSchemaFile: 'schema.gql'
     }),
     TypeOrmModule.forRoot({
-      type:'sqlite',
-      database:':memory',
-      entities: ['dist/**/*.entity{.ts,.js}'],
+      type:'sqlite', // define the database type
+       // in-memory db
+      database: 'memory',
+      entities: ["dist/**/**/*.entity{.ts,.js}", ToDo],
       synchronize: true
     }),
     TodoModule
@@ -24,4 +27,6 @@ import { TodoModule } from './todo/todo.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private conn: Connection){}
+}
