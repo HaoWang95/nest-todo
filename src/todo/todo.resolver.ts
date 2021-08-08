@@ -1,8 +1,9 @@
 import { Resolver, Query } from '@nestjs/graphql';
 import { Author } from './models/author.model';
+import { ToDo } from './models/todo.model';
 import { TodoService } from './todo.service';
 
-@Resolver(of => Author)
+@Resolver()
 export class TodoResolver {
 
     constructor(
@@ -14,8 +15,10 @@ export class TodoResolver {
         return "Hello World";
     }
 
-    @Query()
-    findTodos(){
+    @Query(returns => [ToDo])
+    findTodos(): Promise<ToDo[]>{
         return this.todoService.findAll();
     }
+
+    
 }
