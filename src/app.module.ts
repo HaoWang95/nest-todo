@@ -18,7 +18,7 @@ import { TodoModule } from './todo/todo.module';
     TypeOrmModule.forRoot({
       type:'sqlite', // define the database type
        // in-memory db
-      database: 'memory',
+      database: 'memory', // use memeory instead of :memory
       entities: ["dist/**/**/*.entity{.ts,.js}", ToDo],
       synchronize: true
     }),

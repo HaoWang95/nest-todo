@@ -15,6 +15,7 @@ export class TodoService {
         todo.id = 1
         todo.title = "Test nestjs graphql server";
         todo.content = "Do it asap";
+        console.log('Find all todos')
         return this.ToDoRepository.find(); 
     }
 
