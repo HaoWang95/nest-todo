@@ -11,6 +11,7 @@ type ToDo {
 type Query {
   sayHello: String!
   findTodos: [ToDo!]!
+  findOneTodo(id: Int!): ToDo!
 }
 
 type Mutation {

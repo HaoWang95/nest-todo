@@ -19,8 +19,8 @@ export class TodoService {
         return this.ToDoRepository.find(); 
     }
 
-    findOne(){
-
+    findOne(id: number){
+        return this.ToDoRepository.findOne(id);
     }
 
     createOne(createTodoInput: CreateTodoInput): Promise<ToDo>{
