@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path/posix';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TodoModule } from './todo/todo.module';
 
 
 @Module({
@@ -12,7 +13,8 @@ import { AppService } from './app.service';
       // GraphQL SDL schema definition
       include: [],
       autoSchemaFile: true
-    })
+    }),
+    TodoModule
   ],
   controllers: [AppController],
   providers: [AppService],
