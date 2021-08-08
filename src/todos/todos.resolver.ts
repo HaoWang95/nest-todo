@@ -3,6 +3,7 @@ import { TodosService } from './todos.service';
 import { CreateTodoInput } from './dto/create-todo.input';
 import { UpdateTodoInput } from './dto/update-todo.input';
 import { FindTodoArgs } from './dto/find-todo.args';
+import { DeleteTodoArgs } from './dto/delete-todo.input';
 
 @Resolver('Todo')
 export class TodosResolver {
@@ -19,17 +20,17 @@ export class TodosResolver {
   }
 
   @Query('todo')
-  findOne(@Args() args: FindTodoArgs) {
-    return this.todosService.findOne(args.id);
+  findOne(@Args() findTodoArgs: FindTodoArgs) {
+    return this.todosService.findOne(findTodoArgs);
   }
 
   @Mutation('updateTodo')
   update(@Args('updateTodoInput') updateTodoInput: UpdateTodoInput) {
-    return this.todosService.update(updateTodoInput.id, updateTodoInput);
+    return this.todosService.update(updateTodoInput);
   }
 
   @Mutation('removeTodo')
-  remove(@Args('id') id: string) {
-    return this.todosService.remove(id);
+  remove(@Args('deleteTodoArgs') deleteToDoargs: DeleteTodoArgs) {
+    return this.todosService.remove(deleteToDoargs);
   }
 }
