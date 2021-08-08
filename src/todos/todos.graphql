@@ -22,3 +22,9 @@ type Mutation {
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
   removeTodo(id: Int!): Todo
 }
+
+
+interface SearchItemTask{
+  id: ID!
+  content: String!
+}

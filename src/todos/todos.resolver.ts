@@ -2,6 +2,7 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { TodosService } from './todos.service';
 import { CreateTodoInput } from './dto/create-todo.input';
 import { UpdateTodoInput } from './dto/update-todo.input';
+import { FindTodoArgs } from './dto/find-todo.args';
 
 @Resolver('Todo')
 export class TodosResolver {
@@ -18,8 +19,8 @@ export class TodosResolver {
   }
 
   @Query('todo')
-  findOne(@Args('id') id: number) {
-    return this.todosService.findOne(id);
+  findOne(@Args() args: FindTodoArgs) {
+    return this.todosService.findOne(args.id);
   }
 
   @Mutation('updateTodo')
@@ -28,7 +29,7 @@ export class TodosResolver {
   }
 
   @Mutation('removeTodo')
-  remove(@Args('id') id: number) {
+  remove(@Args('id') id: string) {
     return this.todosService.remove(id);
   }
 }

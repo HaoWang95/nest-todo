@@ -12,15 +12,15 @@ export class TodosService {
     return `This action returns all todos`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} todo`;
   }
 
-  update(id: number, updateTodoInput: UpdateTodoInput) {
+  update(id: string, updateTodoInput: UpdateTodoInput) {
     return `This action updates a #${id} todo`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} todo`;
   }
 }
