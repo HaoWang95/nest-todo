@@ -18,7 +18,5 @@ export class TodoResolver {
     @Query(returns => [ToDo])
     findTodos(): Promise<ToDo[]>{
         return this.todoService.findAll();
-    }
-
-    
+    } 
 }
